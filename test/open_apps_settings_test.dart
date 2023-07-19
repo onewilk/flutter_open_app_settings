@@ -1,9 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
 void main() {
-  const MethodChannel channel = MethodChannel('open_apps_settings');
+  const MethodChannel channel = MethodChannel('flutter_open_app_settings');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

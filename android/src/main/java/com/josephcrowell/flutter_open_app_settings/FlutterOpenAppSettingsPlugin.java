@@ -1,5 +1,5 @@
 /*@Author Hina Hussain Created Date 5-May-2021*/
-package com.creativemind.open_apps_settings;
+package com.josephcrowell.flutter_open_app_settings;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,8 +19,8 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
-/** OpenAppsSettingsPlugin */
-public class OpenAppsSettingsPlugin implements FlutterPlugin, MethodCallHandler, PluginRegistry.ActivityResultListener, ActivityAware {
+/** FlutterOpenAppSettingsPlugin */
+public class FlutterOpenAppSettingsPlugin implements FlutterPlugin, MethodCallHandler, PluginRegistry.ActivityResultListener, ActivityAware {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -31,7 +31,7 @@ public class OpenAppsSettingsPlugin implements FlutterPlugin, MethodCallHandler,
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-    channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "open_apps_settings");
+    channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "flutter_open_app_settings");
     channel.setMethodCallHandler(this);
   }
 

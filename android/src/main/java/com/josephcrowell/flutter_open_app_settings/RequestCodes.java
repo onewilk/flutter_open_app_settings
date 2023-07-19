@@ -1,5 +1,5 @@
 /*@Author Hina Hussain Created Date 5-May-2021*/
-package com.creativemind.open_apps_settings;
+package com.josephcrowell.flutter_open_app_settings;
 
 public class RequestCodes {
 

@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint open_apps_settings.podspec' to validate before publishing.
+# Run `pod lib lint flutter_open_app_settings.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'open_apps_settings'
+  s.name             = 'flutter_open_app_settings'
   s.version          = '0.0.1'
   s.summary          = 'A new Flutter plugin.'
   s.description      = <<-DESC

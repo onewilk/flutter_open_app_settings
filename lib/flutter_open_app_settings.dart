@@ -1,16 +1,68 @@
 /*@Author Hina Hussain on 5-May-2021
+  @Author Joseph Crowell  on 19-Jul-2023
 * */
 
 import 'dart:async';
 import 'package:flutter/services.dart';
-import 'settings_enum.dart';
-/* @Autor Hina Hussain */
 
-/// An [OpenAppsSettings] class is responsible for Opening settings pages for the application.
+/// [SettingsCode] defined all enums that are supported by [flutter_open_app_settings] plugin.
+/// [
+///  APP_SETTINGS,
+//   BLUETOOTH,
+//   WIFI,
+//   ACCESSIBILITY,
+//   ADD_ACCOUNT,
+//   AIRPLANE_MODE,
+//   APN,
+//   ALL_APPS_SETTINGS,
+//   BATTERY_SAVER,
+//   KEYBOARD,
+//   DATA_USAGE,
+//   DATE,
+//   DEVICE_INFO,
+//   DISPLAY,
+//   HOME,
+//   INTERNAL_STORAGE,
+//   FINGERPRINT_ENROLL,
+//   LOCALE,
+//   LOCATION,
+//   PRIVACY,
+//   BATTERY_OPTIMIZATION,
+//   NFC,
+//   SOUND,
+//   NOTIFICATION,
+/// ]
+enum SettingsCode {
+  APP_SETTINGS,
+  BLUETOOTH,
+  WIFI,
+  ACCESSIBILITY,
+  ADD_ACCOUNT,
+  AIRPLANE_MODE,
+  APN,
+  ALL_APPS_SETTINGS,
+  BATTERY_SAVER,
+  KEYBOARD,
+  DATA_USAGE,
+  DATE,
+  DEVICE_INFO,
+  DISPLAY,
+  HOME,
+  INTERNAL_STORAGE,
+  FINGERPRINT_ENROLL,
+  LOCALE,
+  LOCATION,
+  PRIVACY,
+  BATTERY_OPTIMIZATION,
+  NFC,
+  SOUND,
+  NOTIFICATION,
+}
 
-class OpenAppsSettings {
+/// An [FlutterOpenAppSettings] class is responsible for Opening settings pages for the application.
+class FlutterOpenAppSettings {
   static const MethodChannel _channel =
-      const MethodChannel('open_apps_settings');
+      const MethodChannel('flutter_open_app_settings');
 
   ///[openAppsSettings] method is used to open settings.
   /// As a input user will specify which [settings] should be open.

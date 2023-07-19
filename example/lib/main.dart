@@ -1,24 +1,28 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:open_apps_settings/open_apps_settings.dart';
-import 'package:open_apps_settings/settings_enum.dart';
+import 'package:flutter_open_app_settings/flutter_open_app_settings.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const ExampleApp());
 }
 
-class MyApp extends StatefulWidget {
+class ExampleApp extends StatefulWidget {
+  const ExampleApp({Key? key}) : super(key: key);
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<ExampleApp> createState() => _ExampleAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _ExampleAppState extends State<ExampleApp> {
   late Function _function;
 
   @override
   void initState() {
     super.initState();
     _function = () {
-      print("do stuff here After returning back to setting page!");
+      if (kDebugMode) {
+        print('do stuff here After returning back to setting page!');
+      }
     };
   }
 
@@ -35,206 +39,250 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: SingleChildScrollView(
             child: Column(
-              children: [
-                SizedBox(
+              children: <Widget>[
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.APP_SETTINGS,
-                          onCompletion: _function);
-                    },
-                    child: Text("OPEN APP SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.APP_SETTINGS,
+                      onCompletion: _function,
+                    );
+                  },
+                  child: const Text('OPEN APP SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.BLUETOOTH);
-                    },
-                    child: Text("OPEN BLUETOOTH SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.BLUETOOTH,
+                    );
+                  },
+                  child: const Text('OPEN BLUETOOTH SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.WIFI);
-                    },
-                    child: Text("OPEN WIFI SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.WIFI,
+                    );
+                  },
+                  child: const Text('OPEN WIFI SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.ACCESSIBILITY);
-                    },
-                    child: Text("OPEN ACCESSIBILITY SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.ACCESSIBILITY,
+                    );
+                  },
+                  child: const Text('OPEN ACCESSIBILITY SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.ADD_ACCOUNT);
-                    },
-                    child: Text("OPEN ADD ACCOUNT SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.ADD_ACCOUNT,
+                    );
+                  },
+                  child: const Text('OPEN ADD ACCOUNT SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.AIRPLANE_MODE);
-                    },
-                    child: Text("OPEN AIRPLANE SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.AIRPLANE_MODE,
+                    );
+                  },
+                  child: const Text('OPEN AIRPLANE SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.ALL_APPS_SETTINGS);
-                    },
-                    child: Text("OPEN ALL APP SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.ALL_APPS_SETTINGS,
+                    );
+                  },
+                  child: const Text('OPEN ALL APP SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.APN);
-                    },
-                    child: Text("OPEN APN SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.APN,
+                    );
+                  },
+                  child: const Text('OPEN APN SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.BATTERY_SAVER);
-                    },
-                    child: Text("OPEN BATTERY SAVER SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.BATTERY_SAVER,
+                    );
+                  },
+                  child: const Text('OPEN BATTERY SAVER SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.KEYBOARD);
-                    },
-                    child: Text("OPEN KEYBOARD SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.KEYBOARD,
+                    );
+                  },
+                  child: const Text('OPEN KEYBOARD SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.DATA_USAGE);
-                    },
-                    child: Text("OPEN DATA USAGE SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.DATA_USAGE,
+                    );
+                  },
+                  child: const Text('OPEN DATA USAGE SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.DATE);
-                    },
-                    child: Text("OPEN DATE SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.DATE,
+                    );
+                  },
+                  child: const Text('OPEN DATE SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.DEVICE_INFO);
-                    },
-                    child: Text("OPEN DEVICE INFO SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.DEVICE_INFO,
+                    );
+                  },
+                  child: const Text('OPEN DEVICE INFO SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.DISPLAY);
-                    },
-                    child: Text("OPEN DISPLAY SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.DISPLAY,
+                    );
+                  },
+                  child: const Text('OPEN DISPLAY SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.HOME);
-                    },
-                    child: Text("OPEN HOME SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.HOME,
+                    );
+                  },
+                  child: const Text('OPEN HOME SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.INTERNAL_STORAGE);
-                    },
-                    child: Text("OPEN INTERNAL STORAGE SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.INTERNAL_STORAGE,
+                    );
+                  },
+                  child: const Text('OPEN INTERNAL STORAGE SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.NFC);
-                    },
-                    child: Text("OPEN NFC SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.NFC,
+                    );
+                  },
+                  child: const Text('OPEN NFC SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.NOTIFICATION);
-                    },
-                    child: Text("OPEN NOTIFICATION SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.NOTIFICATION,
+                    );
+                  },
+                  child: const Text('OPEN NOTIFICATION SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.SOUND);
-                    },
-                    child: Text("OPEN SOUND SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.SOUND,
+                    );
+                  },
+                  child: const Text('OPEN SOUND SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.BATTERY_OPTIMIZATION);
-                    },
-                    child: Text("OPEN BATTERY OPTIMIZATION SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.BATTERY_OPTIMIZATION,
+                    );
+                  },
+                  child: const Text('OPEN BATTERY OPTIMIZATION SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.LOCATION);
-                    },
-                    child: Text("OPEN LOCATION SETTINGS")),
-                SizedBox(
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.LOCATION,
+                    );
+                  },
+                  child: const Text('OPEN LOCATION SETTINGS'),
+                ),
+                const SizedBox(
                   height: 10,
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      OpenAppsSettings.openAppsSettings(
-                          settingsCode: SettingsCode.LOCALE);
-                    },
-                    child: Text("OPEN LOCALE SETTINGS")),
+                  onPressed: () {
+                    FlutterOpenAppSettings.openAppsSettings(
+                      settingsCode: SettingsCode.LOCALE,
+                    );
+                  },
+                  child: const Text('OPEN LOCALE SETTINGS'),
+                ),
               ],
             ),
           ),

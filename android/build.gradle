@@ -1,4 +1,4 @@
-group 'com.creativemind.open_apps_settings'
+group 'com.josephcrowell.flutter_open_app_settings'
 version '1.0'
 
 buildscript {

@@ -1,6 +1,6 @@
-# open_apps_settings_example
+# flutter_open_app_settings_example
 
-Demonstrates how to use the open_apps_settings plugin.
+Demonstrates how to use the flutter_open_app_settings plugin.
 
 ## Getting Started
 
