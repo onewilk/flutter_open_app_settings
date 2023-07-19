@@ -25,7 +25,6 @@ linter:
     always_declare_return_types: true
     always_put_control_body_on_new_line: true
     always_put_required_named_parameters_first: true
-    always_require_non_null_named_parameters: true
     always_specify_types: true
     always_use_package_imports: true
     annotate_overrides: true
@@ -53,8 +52,6 @@ linter:
     avoid_relative_lib_imports: true
     avoid_renaming_method_parameters: true
     avoid_return_types_on_setters: true
-    avoid_returning_null: true
-    avoid_returning_null_for_future: true
     avoid_returning_null_for_void: true
     avoid_returning_this: true
     avoid_setters_without_getters: true
@@ -93,7 +90,6 @@ linter:
     flutter_style_todos: false
     hash_and_equals: true
     implementation_imports: true
-    invariant_booleans: true
     iterable_contains_unrelated_type: true
     join_return_with_assignment: true
     leading_newlines_in_multiline_strings: true
@@ -133,7 +129,6 @@ linter:
     prefer_constructors_over_static_methods: true
     prefer_contains: true
     prefer_double_quotes: false
-    prefer_equal_for_default_values: true
     prefer_expression_function_bodies: false
     prefer_final_fields: true
     prefer_final_in_for_each: true
