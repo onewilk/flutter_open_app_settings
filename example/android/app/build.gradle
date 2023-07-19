@@ -25,17 +25,13 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 29
-
-    lintOptions {
-        disable 'InvalidPackage'
-    }
+    compileSdkVersion 33
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.josephcrowell.flutter_open_app_settings_example"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -46,6 +42,10 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+    }
+    namespace 'com.josephcrowell.flutter_open_app_settings_example'
+    lint {
+        disable 'InvalidPackage'
     }
 }
 
