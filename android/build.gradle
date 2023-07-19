@@ -2,6 +2,7 @@ group 'com.josephcrowell.flutter_open_app_settings'
 version '1.0'
 
 buildscript {
+    ext.kotlin_version = '1.8.20'
     repositories {
         google()
         mavenCentral()
@@ -9,6 +10,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -20,6 +22,7 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 33
@@ -27,10 +30,39 @@ android {
         namespace 'com.josephcrowell.flutter_open_app_settings'
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 30
     }
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled = false
+            manifestPlaceholders = [enableCrashReporting: "false"]
+        }
+        release {
+            minifyEnabled true
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:1.10.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
