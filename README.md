@@ -13,7 +13,7 @@ flutter_open_app_settings:^0.1.0
 Install by running:
 
 ```bash
-$ flutter pub get
+flutter pub get
 ```
 
 ## Usage
@@ -82,4 +82,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Follow me
 
-https://github.com/josephcrowell
+<https://github.com/josephcrowell>
