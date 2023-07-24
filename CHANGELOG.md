@@ -19,3 +19,7 @@
 * Bug Fixes.
 * Deprecation fixes.
 * Build fixes. Make compatible with AGP 8.
+
+## 0.1.1
+
+* Enable build targets as low as SDK 28 again.
