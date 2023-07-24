@@ -4,6 +4,7 @@ package com.josephcrowell.flutter_open_app_settings
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterPluginBinding
@@ -29,13 +30,19 @@ class FlutterOpenAppSettingsPlugin : FlutterPlugin, MethodCallHandler, ActivityR
         channel!!.setMethodCallHandler(this)
     }
 
+
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         activityRes = result
         if (call.method == "openSettings") {
             val settingCode = call.argument<String>("setting_code")
             when (settingCode ?: "") {
                 "app_settings" -> openAppSettings()
-                "wifi" -> openSettings(Settings.ACTION_WIFI_SETTINGS, RequestCodes.WIFI_SETTINGS)
+
+                "wifi" -> openSettings(
+                    Settings.ACTION_WIFI_SETTINGS,
+                    RequestCodes.WIFI_SETTINGS
+                )
+
                 "bluetooth" -> openSettings(
                     Settings.ACTION_BLUETOOTH_SETTINGS,
                     RequestCodes.BLUETOOTH_SETTINGS
@@ -46,31 +53,46 @@ class FlutterOpenAppSettingsPlugin : FlutterPlugin, MethodCallHandler, ActivityR
                     RequestCodes.ACCESSIBILITY_SETTINGS
                 )
 
-                "add_account" -> openSettings(Settings.ACTION_ADD_ACCOUNT, RequestCodes.ADD_ACCOUNT)
+                "add_account" -> openSettings(
+                    Settings.ACTION_ADD_ACCOUNT,
+                    RequestCodes.ADD_ACCOUNT
+                )
+
                 "airplane_mode" -> openSettings(
                     Settings.ACTION_AIRPLANE_MODE_SETTINGS,
                     RequestCodes.AIRPLANE_MODE_SETTINGS
                 )
 
-                "apn" -> openSettings(Settings.ACTION_APN_SETTINGS, RequestCodes.APN_SETTINGS)
+                "apn" -> openSettings(
+                    Settings.ACTION_APN_SETTINGS,
+                    RequestCodes.APN_SETTINGS
+                )
+
                 "all_apps_settings" -> openSettings(
                     Settings.ACTION_APPLICATION_SETTINGS,
                     RequestCodes.APPLICATIONS_SETTINGS
                 )
 
                 "battery_saver" -> openSettings(
-                    Settings.ACTION_BATTERY_SAVER_SETTINGS, RequestCodes.BATTERY_SAVER_SETTINGS
+                    Settings.ACTION_BATTERY_SAVER_SETTINGS,
+                    RequestCodes.BATTERY_SAVER_SETTINGS
                 )
 
                 "keyboard" -> openSettings(
-                    Settings.ACTION_HARD_KEYBOARD_SETTINGS, RequestCodes.KEYBOARD_SETTINGS
+                    Settings.ACTION_HARD_KEYBOARD_SETTINGS,
+                    RequestCodes.KEYBOARD_SETTINGS
                 )
 
                 "data_usage" -> openSettings(
-                    Settings.ACTION_DATA_USAGE_SETTINGS, RequestCodes.DATA_USAGE_SETTINGS
+                    Settings.ACTION_DATA_USAGE_SETTINGS,
+                    RequestCodes.DATA_USAGE_SETTINGS
                 )
 
-                "date" -> openSettings(Settings.ACTION_DATE_SETTINGS, RequestCodes.DATE_SETTINGS)
+                "date" -> openSettings(
+                    Settings.ACTION_DATE_SETTINGS,
+                    RequestCodes.DATE_SETTINGS
+                )
+
                 "device_info" -> openSettings(
                     Settings.ACTION_DEVICE_INFO_SETTINGS,
                     RequestCodes.DEVICE_INFO_SETTINGS
@@ -82,7 +104,8 @@ class FlutterOpenAppSettingsPlugin : FlutterPlugin, MethodCallHandler, ActivityR
                 )
 
                 "home" -> openSettings(
-                    Settings.ACTION_HOME_SETTINGS, RequestCodes.HOME_SETTINGS
+                    Settings.ACTION_HOME_SETTINGS,
+                    RequestCodes.HOME_SETTINGS
                 )
 
                 "internal_storage" -> openSettings(
@@ -90,9 +113,17 @@ class FlutterOpenAppSettingsPlugin : FlutterPlugin, MethodCallHandler, ActivityR
                     RequestCodes.INTERNAL_STORAGE_SETTINGS
                 )
 
-                "fingerprint_enroll" -> openSettings(
-                    Settings.ACTION_BIOMETRIC_ENROLL, RequestCodes.FINGERPRINT_ENROL
-                )
+                "fingerprint_enroll" -> if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+                    openSettings(
+                        Settings.ACTION_BIOMETRIC_ENROLL,
+                        RequestCodes.FINGERPRINT_ENROL
+                    )
+                else
+                    @Suppress("DEPRECATION")
+                    openSettings(
+                        Settings.ACTION_FINGERPRINT_ENROLL,
+                        RequestCodes.FINGERPRINT_ENROL
+                    )
 
                 "locale" -> openSettings(
                     Settings.ACTION_LOCALE_SETTINGS,
@@ -114,9 +145,18 @@ class FlutterOpenAppSettingsPlugin : FlutterPlugin, MethodCallHandler, ActivityR
                     RequestCodes.BATTERY_OPTIMIZATION_SETTINGS
                 )
 
-                "nfc" -> openSettings(Settings.ACTION_NFC_SETTINGS, RequestCodes.NFC_SETTING)
-                "sound" -> openSettings(Settings.ACTION_SOUND_SETTINGS, RequestCodes.SOUND_SETTINGS)
+                "nfc" -> openSettings(
+                    Settings.ACTION_NFC_SETTINGS,
+                    RequestCodes.NFC_SETTING
+                )
+
+                "sound" -> openSettings(
+                    Settings.ACTION_SOUND_SETTINGS,
+                    RequestCodes.SOUND_SETTINGS
+                )
+
                 "notification" -> openNotification()
+
                 else -> result.notImplemented()
             }
         } else {
