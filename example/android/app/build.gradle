@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
     if (project.android.hasProperty("namespace")) {
         namespace 'com.josephcrowell.flutter_open_app_settings_example'
     }
@@ -47,7 +47,7 @@ android {
     defaultConfig {
         applicationId "com.josephcrowell.flutter_open_app_settings_example"
         minSdkVersion 28
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
